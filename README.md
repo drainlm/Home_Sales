@@ -1,43 +1,64 @@
-# Home_Sales
+# Home_Sales ReadMe
 
+This script reads in the data from an AWS S3 bucket into the DataFrame, creates a temporary view of the DataFrame, and performs SQL queries to answer questions about home sales from the dataset.
 
-### Instructions
+### Dependencies:
 
-    1. Rename the`Home_Sales_starter_code.ipynb` file as `Home_Sales.ipynb`.
+* Apache Spark
+* Java
 
-1. Import the necessary PySpark SQL functions for this assignment.
-2. Read the `home_sales_revised.csv` data in the starter code into a Spark DataFrame.
-3. Create a temporary table called `home_sales`.
-4. Answer the following questions using SparkSQL:
+### Output
 
-   * What is the average price for a four-bedroom house sold for each year? Round off your answer to two decimal places.
-   * What is the average price of a home for each year
-     it was built that has three bedrooms and three bathrooms? Round off
-     your answer to two decimal places.
-   * What is the average price of a home for each year
-     that has three bedrooms, three bathrooms, two floors, and is greater
-     than or equal to 2,000 square feet? Round off your answer to two decimal
-     places.
-   * What is the "view" rating for homes costing more
-     than or equal to $350,000? Determine the run time for this query, and
-     round off your answer to two decimal places.
-5. Cache your temporary table `home_sales`.
-6. Check if your temporary table is cached.
-7. Using the cached data, run the query that filters out the
-   view ratings with an average price of greater than or equal to
-   $350,000. Determine the runtime and compare it to uncached runtime.
-8. Partition by the "date_built" field on the formatted parquet home sales data.
-9. Create a temporary table for the parquet data.
-10. Run the query that filters out the view ratings with an
-    average price of greater than or equal to $350,000. Determine the
-    runtime and compare it to uncached runtime.
-11. Uncache the `home_sales` temporary table.
-12. Verify that the `home_sales` temporary table is uncached using PySpark.
-13. Download your `Home_Sales.ipynb` file and upload it into your "Home_Sales" GitHub repository.
+1. What is the average price for a four-bedroom house sold for each year? Round off your answer to two decimal places.
 
-    ### Support and Resources
+* In 2019, the average price was $300,263.70.
+* In 2020, the average price was $298,353.78.
+* In 2021, the average price was $301,819.44.
+* In 2022, the average price was $296,363.88.
 
-    Your instructional team will provide support during classes and
-    office hours. You will also have access to learning assistants and
-    tutors to help you with topics as needed. Make sure to take advantage of
-    these resources as you collaborate with your partner on this project.
+  ![1685209340847](image/README/1685209340847.png)
+
+2. What is the average price of a home for each year
+   it was built that has three bedrooms and three bathrooms? Round off
+   your answer to two decimal places.
+
+* In 2010, the average price was $292,859.62.
+* In 2011, the average price was $291,117.47.
+* In 2012, the average price was $293,683.19.
+* In 2013, the average price was $295,962.27.
+* In 2014, the average price was $290,852.27.
+* In 2015, the average price was $288,770.30.
+* In 2016, the average price was $290,555.07.
+* In 2017, the average price was $292,676.79.
+
+    ![1685209362508](image/README/1685209362508.png)
+
+3. What is the average price of a home for each year
+   that has three bedrooms, three bathrooms, two floors, and is greater
+   than or equal to 2,000 square feet?
+
+* In 2010, the average price was $285,010.22.
+* In 2011, the average price was $276,553.81.
+* In 2012, the average price was $307,539.97.
+* In 2013, the average price was $303,676.79.
+* In 2014, the average price was $298,264.72.
+* In 2015, the average price was $297,609.97.
+* In 2016, the average price was $293,965.10.
+* In 2017, the average price was $280,317.58.
+
+    ![1685209378838](image/README/1685209378838.png)
+
+4. What is the "view" rating for homes costing more
+   than or equal to $350,000?
+
+   ![1685208818663](https://file+.vscode-resource.vscode-cdn.net/c%3A/Users/lisam/OneDrive/Desktop/Home_Sales/image/README/1685208818663.png)
+
+   * The initial run time was .81 seconds for this query.
+
+     ![1685210019878](image/README/1685210019878.png)
+   * The cached run time was .55 seconds for this query.
+
+     ![1685210033990](image/README/1685210033990.png)
+   * The partitioned run time was 1.61 seconds for this query.
+
+     ![1685210044942](image/README/1685210044942.png)
